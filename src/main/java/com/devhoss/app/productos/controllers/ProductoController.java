@@ -16,11 +16,11 @@ import com.devhoss.app.productos.services.IProductoService;
 @RestController
 public class ProductoController {
 	
-	     @Autowired
-		private Environment env;
+	    // @Autowired
+		//private Environment env;
 		
-		//@Value("${server.port}")
-		//private Integer port;
+		@Value("${server.port}")
+		private Integer port;
 		
 		@Autowired
 		private IProductoService productoService;
@@ -28,8 +28,8 @@ public class ProductoController {
 		@GetMapping("/listar")
 		public List<Producto> listar(){
 			return productoService.findAll().stream().map(producto ->{
-				producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-				//producto.setPort(port);
+			//	producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+				producto.setPort(port);
 				return producto;
 			}).collect(Collectors.toList());
 		}
@@ -37,8 +37,8 @@ public class ProductoController {
 		@GetMapping("/ver/{id}")
 		public Producto detalle(@PathVariable Long id) {
 			Producto producto = productoService.findById(id);
-			producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-			//producto.setPort(port);
+			//producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+			producto.setPort(port);
 			return producto;
 		}
 
