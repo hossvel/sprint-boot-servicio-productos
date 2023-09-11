@@ -1,4 +1,4 @@
-package com.devhoss.app.productos;
+package com.devhoss.app.productos.controllers;
 
 import java.util.List;
 
