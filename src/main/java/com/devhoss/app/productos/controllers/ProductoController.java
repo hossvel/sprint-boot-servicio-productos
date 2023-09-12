@@ -40,8 +40,6 @@ public class ProductoController {
 			producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 			//producto.setPort(port);
 			
-			boolean ok=false;
-			if(!ok) throw new RuntimeException("no se encotro el producto");
 			return producto;
 		}
 
