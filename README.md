@@ -6,3 +6,4 @@
 ## generar imagen: docker build -t servicio-productos:v1 .
 ## creando red: docker network create sprintcloud
 ## levantando servicio: docker run -d -P --name servicio-productos --network sprintcloud servicio-productos:v1
+## escalamiento: docker run -d -P --network sprintcloud servicio-productos:v1
